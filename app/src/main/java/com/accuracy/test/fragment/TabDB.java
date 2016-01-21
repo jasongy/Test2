@@ -9,21 +9,21 @@ import com.accuracy.test.R;
 public class TabDB {
 
     public static String[] getTabText() {
-        String[] tabs = {"首页", "消息",  "发现", "我"};
+        String[] tabs = {"首页", "详情",  "发现", "我"};
         return tabs;
     }
 
     public static int[] getTabImg() {
-        int[] imags = {R.drawable.tabbar_home_auto, R.drawable.tabbar_message_auto,
-                R.drawable.tabbar_compose_background_icon_add, R.drawable.tabbar_discover_auto,
-                R.drawable.tabbar_profile_auto};
+        int[] imags = {R.drawable.tabbar_home, R.drawable.tabbar_message_center,
+               R.drawable.tabbar_discover,
+                R.drawable.tabbar_profile};
         return imags;
     }
 
 
     public static Class[] getFragments() {
-        Class[] classess = {MainFragment.class, MessageFragment.class, PostFragment.class,
-                DiscoverFragment.class, ProfileFragment.class};
+        Class[] classess = {MainFragment.class, DetailFragment.class,
+                RouteFragment.class, PersonalFragment.class};
         return classess;
     }
 

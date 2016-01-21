@@ -24,22 +24,6 @@ import com.accuracy.test.R;
 
 import java.util.ArrayList;
 
-/**
- * Special TabHost that allows the use of {@link Fragment} objects for
- * its tab content.  When placing this in a view hierarchy, after inflating
- * the hierarchy you must call {@link #setup(Context, FragmentManager, int)}
- * to complete the initialization of the tab host.
- * <p/>
- * <p>Here is a simple example of using a FragmentTabHost in an Activity:
- * <p/>
- * {@sample development/samples/Support4Demos/src/com/example/android/supportv4/app/FragmentTabs.java
- * complete}
- * <p/>
- * <p>This can also be used inside of a fragment through fragment nesting:
- * <p/>
- * {@sample development/samples/Support4Demos/src/com/example/android/supportv4/app/FragmentTabsFragmentSupport.java
- * complete}
- */
 public class FragmentTabHost extends TabHost
         implements TabHost.OnTabChangeListener{
 
