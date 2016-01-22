@@ -18,7 +18,7 @@ import com.tianditu.android.maps.MapView;
 
 public class MainFragment extends Fragment {
     private Activity mActivity;
-    private View mToolBar;
+    private View mMap;
     private View mView;
     private MapView mMapView = null;
     protected MapController mController = null;
@@ -27,50 +27,24 @@ public class MainFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mActivity = getActivity();
         mView = inflater.inflate(R.layout.fragment_main, container, false);
-        mMapView = (MapView) mActivity.findViewById(R.id.mapsView);
-        MapController mMapController = mMapView.getController();
-//用给定的经纬度构造一个GeoPoint，单位是微度 (度 * 1E6)
-        GeoPoint point = new GeoPoint((int) (39.915 * 1E6), (int) (116.404 * 1E6));
-//设置地图中心点
-        mMapController.setCenter(point);
-//设置地图zoom级别
-        mMapController.setZoom(12);
-        return mView;
 
+        return mView;
     }
 
-
-   
-//
+    private void initView() {
+        mMapView= (MapView) mActivity.findViewById(R.id.mapsView);
+        mMapView.displayZoomControls(true);
+    }
+    //
     @Override
     public void onDestroy() {
         super.onDestroy();
-        //在activity执行onDestroy时执行mMapView.onDestroy()，实现地图生命周期管理
+
     }
-//
-//    @Override
-//    public void onHiddenChanged(boolean hidden) {
-//        super.onHiddenChanged(hidden);
-//        if (hidden) {
-//            hideToolBar();
-//        } else {
-//            showToolBar();
-//        }
-//    }
-//
-//    private void showToolBar() {
-//        mToolBar.setVisibility(View.VISIBLE);
-//    }
-//
-//    private void hideToolBar() {
-//        mToolBar.setVisibility(View.GONE);
-//    }
 }

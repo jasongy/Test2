@@ -33,6 +33,7 @@ public class MainActivity extends FragmentActivity {
     private DetailFragment mDetailFragment;
     private RouteFragment mRouteFragment;
     private PersonalFragment mPersonalFragment;
+    private MapView mMapView=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,8 @@ public class MainActivity extends FragmentActivity {
         initTab();
 
     }
+
+
 
     private void initTab() {
         mFragmentTabHost = (FragmentTabHost) findViewById(R.id.tabhost);
