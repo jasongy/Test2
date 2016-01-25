@@ -2,6 +2,8 @@ package com.accuracy.test.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,6 +17,9 @@ import com.accuracy.test.R;
 import com.tianditu.android.maps.GeoPoint;
 import com.tianditu.android.maps.MapController;
 import com.tianditu.android.maps.MapView;
+import com.tianditu.android.maps.MyLocationOverlay;
+import com.tianditu.android.maps.Overlay;
+
 
 public class MainFragment extends Fragment {
     private Activity mActivity;
@@ -22,11 +27,15 @@ public class MainFragment extends Fragment {
     private View mView;
     private MapView mMapView = null;
     protected MapController mController = null;
+    private MyLocationOverlay myLocationOverlay;
+    protected Context mCon   = null;
+    private Overlay mOverlay;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -38,10 +47,23 @@ public class MainFragment extends Fragment {
     }
 
     private void initView() {
-        mMapView= (MapView) mActivity.findViewById(R.id.mapsView);
+        mMapView= (MapView) mView.findViewById(R.id.mapsView);
         mMapView.displayZoomControls(true);
+        mController = mMapView.getController();
+        myLocationOverlay = new MyLocationOverlay(getActivity(),mMapView);
+        myLocationOverlay.enableCompass();
+        myLocationOverlay.enableMyLocation();
+        mMapView.getOverlays().add(myLocationOverlay);
+
+        myLocationOverlay.getAccuracy();
+
+        Resources res = getResources();
+        Drawable marker = res.getDrawable(R.drawable.icon_focus_mark);
     }
     //
+    public float getAccuracy(){
+        return  myLocationOverlay.getAccuracy();
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();

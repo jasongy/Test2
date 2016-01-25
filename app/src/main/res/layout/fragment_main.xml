@@ -11,4 +11,11 @@
 
 </com.tianditu.android.maps.MapView>
 
+    <ImageView
+        android:id="@+id/iv_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|bottom"
+        android:background="@drawable/location"/>
+
 </FrameLayout>
